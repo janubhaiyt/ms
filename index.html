@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Junior College - Vibrant Education Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-yellow-200 via-white to-blue-100 font-roboto text-gray-800">
+    <!-- Animated Header with Sticky Nav -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold font-poppins">Your Junior College</h1>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#home" class="hover:text-yellow-300 transition duration-300">Home</a></li>
+                <li><a href="#about" class="hover:text-yellow-300 transition duration-300">About</a></li>
+                <li><a href="#staff" class="hover:text-yellow-300 transition duration-300">Staff</a></li>
+                <li><a href="#events" class="hover:text-yellow-300 transition duration-300">Events</a></li>
+                <li><a href="#contact" class="hover:text-yellow-300 transition duration-300">Contact</a></li>
+            </ul>
+            <button class="md:hidden" onclick="toggleMenu()">☰</button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-700 px-6 py-4">
+            <ul class="space-y-4">
+                <li><a href="#home" class="block hover:text-yellow-300">Home</a></li>
+                <!-- Add others -->
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section with Carousel -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('hero-bg.jpg');"></div>
+        <div class="relative z-10 text-center text-white">
+            <h2 class="text-5xl md:text-7xl font-black font-poppins animate-pulse">Welcome to Excellence!</h2>
+            <p class="text-xl md:text-2xl mt-4">Discover our vibrant facilities, top education, and achievements.</p>
+            <button class="mt-8 bg-yellow-400 text-blue-900 px-8 py-4 rounded-full font-bold hover:bg-yellow-300 transition transform hover:scale-105">Explore Now</button>
+        </div>
+        <!-- Carousel Dots -->
+        <div class="absolute bottom-10 flex space-x-4">
+            <span class="w-3 h-3 bg-white rounded-full cursor-pointer"></span>
+            <!-- Add more -->
+        </div>
+    </section>
+
+    <!-- About Section with Animated Cards -->
+    <section id="about" class="py-20 bg-gradient-to-r from-green-100 to-blue-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 font-poppins text-blue-800">About Our College</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2 card">
+                    <img src="facility.jpg" alt="Facilities" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-semibold text-green-600 mb-2">Facilities</h3>
+                    <p>State-of-the-art labs, sports arenas, and libraries designed for innovation.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2 card">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-2">Education System</h3>
+                    <p>Holistic curriculum blending academics, arts, and extracurriculars.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2 card">
+                    <h3 class="text-2xl font-semibold text-yellow-600 mb-2">Achievements</h3>
+                    <p>Award-winning programs with top student placements and recognitions.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2 card">
+                    <h3 class="text-2xl font-semibold text-purple-600 mb-2">Heads of College</h3>
+                    <p>Meet our visionary principal and leadership driving success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section with Modals -->
+    <section id="staff" class="py-20 bg-gradient-to-br from-yellow-200 to-green-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 font-poppins text-blue-800">Our Experienced Staff</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center hover:shadow-2xl transition cursor-pointer" onclick="openModal('teacher1')">
+                    <img src="teacher1.jpg" alt="Teacher" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                    <h4 class="text-xl font-semibold">Teacher Name</h4>
+                    <p>Experience: 15+ years in innovative teaching.</p>
+                </div>
+                <!-- Add more staff -->
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+            <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
+                <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
+                <p id="modal-content"></p>
+                <button onclick="closeModal()" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Close</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section with Carousel -->
+    <section id="events" class="py-20 bg-gradient-to-r from-blue-200 to-purple-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 font-poppins text-blue-800">Annual Events</h2>
+            <div class="overflow-hidden relative">
+                <div class="flex space-x-8 event-carousel">
+                    <div class="flex-shrink-0 w-80 bg-white rounded-xl shadow-xl p-6">
+                        <img src="event1.jpg" alt="Event" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-xl font-semibold">Annual Sports Day</h4>
+                        <p>A thrilling day of competitions and fun.</p>
+                    </div>
+                    <!-- Add more events -->
+                </div>
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full">‹</button>
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Form -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-green-200 to-blue-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 font-poppins text-blue-800">Get in Touch</h2>
+            <form id="contact-form" class="max-w-lg mx-auto bg-white rounded-xl shadow-xl p-8">
+                <input type="text" id="name" placeholder="Your Name" class="w-full p-4 mb-4 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                <input type="email" id="email" placeholder="Your Email" class="w-full p-4 mb-4 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                <textarea id="message" placeholder="Message (e.g., Admission Inquiry)" class="w-full p-4 mb-4 border rounded-lg focus:ring-2 focus:ring-blue-500" rows="5" required></textarea>
+                <button type="submit" class="w-full bg-yellow-400 text-blue-900 py-4 rounded-lg font-bold hover:bg-yellow-300 transition">Send Message</button>
+            </form>
+            <p class="text-center mt-8">Email: info@yourcollege.edu | Phone: 123-456-7890</p>
+        </div>
+    </section>
+
+    <footer class="bg-blue-800 text-white py-8 text-center">
+        <p>&copy; 2023 Your Junior College. Connect with us on social media!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
